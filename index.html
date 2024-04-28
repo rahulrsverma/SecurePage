@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Protected Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 50%;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    input[type=password] {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #myModal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      padding-top: 100px; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 500%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+    }
+
+    #myModal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+	  height: 15%;
+    }
+
+    #close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    #close:hover,
+    #close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Password Protected Page</h1>
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="checkPassword()">Submit</button>
+  <div id="myModal">
+    <div id="myModal-content">
+      <span id="close">&times;</span>
+      <div id="content" style="display:none;">
+        <p>This is the secret content!</p>
+		<p>This is the secret content!</p>
+		<a href="https://rahulrsverma.github.io/react_load/">Go to another page</a>
+		<p>Dont let the company steal your knowledge & secret</p>
+		<a href="https://rahulrsverma.github.io/hover/">Go to another page</a>
+		<a href="https://rahulrsverma.github.io/portfolio/">Go to another page</a>
+		
+		
+		
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function checkPassword() {
+    var password = document.getElementById('password').value;
+    var storedPassword = "password123"; 
+    if (password == storedPassword) {
+      document.getElementById('content').style.display = 'block';
+      document.getElementById('myModal').style.display = 'block';
+    } else {
+      alert('Incorrect password! Please try again.');
+    }
+  }
+
+  var modal = document.getElementById('myModal');
+  var close = document.getElementById('close');
+
+  close.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
